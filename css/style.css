@@ -6,6 +6,7 @@ Author : Ngetemplates
   Import Google Web Font
 ---------------------------------*/
 @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 /* ------------------------------
   General
 ---------------------------------*/
@@ -83,6 +84,7 @@ ul {
   padding: 0;
   margin: 0;
 }
+
 ul li {
   list-style: none;
 }
@@ -168,57 +170,71 @@ img {
   z-index: 99;
   text-align: center;
 }
+
 .navbar .navbar-brand {
   text-align: left;
   width: 20%;
 }
+
 .navbar .navbar-brand img {
   height: 30px;
   width: auto;
 }
+
 .navbar .navbar-brand:hover {
   color: #0a0a0a;
 }
+
 .navbar .navbar-toggler {
   padding: 0;
 }
+
 .navbar .navbar-toggler i {
   font-size: 32px;
 }
+
 .navbar .navbar-toggler:focus {
   box-shadow: none;
 }
+
 .navbar .navbar-collapse {
   position: relative;
   width: 60%;
   text-align: center;
   left: -10px;
 }
+
 .navbar .navbar-nav {
   margin-right: auto;
   margin-left: auto;
 }
+
 .navbar .navbar-nav li {
   padding: 0 10px;
 }
+
 .navbar .navbar-nav li a {
   color: #0a0a0a;
   font-weight: 500;
 }
+
 .navbar .navbar-nav li a:hover {
   color: #ff7a42;
 }
+
 .navbar .navbar-nav li .button {
   color: #fff;
   margin-top: -3px;
   display: inline-block;
   margin-right: -15px;
 }
+
 .navbar .button-navbar {
   width: 20%;
   float: right;
   text-align: right;
 }
+
 .navbar .button-navbar li {
   display: inline-block;
   margin-left: 15px;
@@ -234,28 +250,34 @@ img {
 .intro {
   margin-top: 96px;
 }
+
 .intro .content {
   background: #ffedea;
   padding: 60px 40px;
   border-radius: 5px;
   color: #555;
 }
+
 .intro .content ul {
   margin-top: 20px;
 }
+
 .intro .content ul li {
   margin-right: 10px;
   display: inline-block;
 }
+
 .intro .content ul li a i {
   color: #ff7a42;
   font-size: 18px;
 }
+
 .intro .content ul li a i:hover {
   color: #0a0a0a;
 }
+
 .intro .content img {
-  border-radius: 50%;
+  border-radius: 500%;
   padding: 50px;
   position: relative;
   left: 50px;
@@ -271,6 +293,7 @@ img {
   margin-bottom: 15px;
   color: #ff7a42;
 }
+
 .the-title span {
   height: 1px;
   width: 40px;
@@ -287,18 +310,22 @@ img {
 .about {
   padding: 100px 0 0;
 }
+
 .about .content {
   padding-left: 15px;
 }
+
 .about img {
   border-radius: 5px;
 }
+
 .about .icon {
   position: relative;
   top: -11px;
   float: left;
   margin-right: 15px;
 }
+
 .about .icon i {
   font-size: 30px;
   border: 1px solid #ff7a42;
@@ -306,11 +333,13 @@ img {
   padding: 10px;
   color: #ff7a42;
 }
+
 .about .text {
   overflow: hidden;
   position: relative;
   top: -14px;
 }
+
 .about .row .row {
   margin-top: 50px;
 }
@@ -321,19 +350,23 @@ img {
 .open-hours {
   padding: 100px 0 0;
 }
+
 .open-hours .content {
   padding: 80px 35px;
   background: #ffedea;
   border-radius: 5px;
 }
+
 .open-hours h2 {
   text-align: center;
 }
+
 .open-hours ul {
   border: 2px dotted #ff7a42;
   margin-bottom: 20px;
   padding: 20px;
 }
+
 .open-hours ul li {
   font-size: 18px;
   text-transform: uppercase;
@@ -341,12 +374,14 @@ img {
   color: #333;
   font-weight: 500;
 }
+
 .open-hours .hours {
   margin: 0 25%;
   border: 0;
   border-radius: 5px;
   background: #ff7a42;
 }
+
 .open-hours .hours li {
   color: #fff;
   font-size: 25px;
@@ -359,15 +394,19 @@ img {
 .product {
   padding: 100px 0 0;
 }
+
 .product h5 {
   margin-top: 10px;
 }
+
 .product .filtr-item {
   padding: 15px;
 }
+
 .product .box-content {
   margin-left: 11px;
 }
+
 .product .product-filter-menu {
   float: right;
   top: -83px;
@@ -375,6 +414,7 @@ img {
   margin-bottom: -60px;
   left: -11px;
 }
+
 .product .product-filter-menu ul {
   background: #ffedea;
   padding: 10px 20px;
@@ -383,29 +423,36 @@ img {
   font-weight: 600;
   color: #0a0a0a;
 }
+
 .product .product-filter-menu ul li {
   display: inline-block;
   margin: 0 20px;
   cursor: pointer;
 }
+
 .product .product-filter-menu ul li:hover {
   color: #ff7a42;
 }
+
 .product .content {
   border-radius: 5px;
   padding: 20px;
   border: 1px solid #ffedea;
 }
+
 .product .content img {
   border-radius: 5px;
 }
+
 .product .content ul {
   position: relative;
 }
+
 .product .content ul li {
   display: inline-block;
   color: orange;
 }
+
 .product .content span {
   font-size: 23px;
   color: #ff7a42;
@@ -418,6 +465,7 @@ img {
 .cta {
   padding: 100px 0 0;
 }
+
 .cta img {
   padding-right: 40px;
   position: relative;
@@ -425,11 +473,13 @@ img {
   margin-top: -248px;
   border-radius: 5px;
 }
+
 .cta .box-content {
   background: #ffedea;
   border-radius: 5px;
   padding: 50px 40px;
 }
+
 .cta .box-content .button {
   margin-top: 40px;
 }
@@ -440,33 +490,41 @@ img {
 .faq {
   padding: 100px 0 0;
 }
+
 .faq h5 {
   font-size: 16px;
   font-weight: 500;
 }
+
 .faq .button {
   margin-top: 35px;
 }
+
 .faq .accordion-item {
   margin-bottom: 15px;
   border: 1px solid #ffedea;
 }
+
 .faq .accordion-button {
   padding-top: 0;
   padding-bottom: 0;
 }
+
 .faq .accoridon-button.collapsed {
   border-bottom: 1px solid #ffedea;
 }
+
 .faq .accordion-button:not(.collapsed) {
   background: #fff;
   color: #0a0a0a;
   box-shadow: none;
 }
+
 .faq .accordion-button:focus {
   border-color: #ffedea;
   box-shadow: none;
 }
+
 .faq .accordion {
   margin-left: 30px;
 }
@@ -481,11 +539,13 @@ img {
 .contact {
   padding: 100px 0 0;
 }
+
 .contact .content {
   background: #ffedea;
   padding: 35px 35px;
   border-radius: 0 5px 5px 0;
 }
+
 .contact .content ul li {
   padding: 10px 0;
   font-size: 15px;
@@ -493,6 +553,7 @@ img {
   font-weight: 500;
   line-height: 30px;
 }
+
 .contact .content i {
   font-size: 30px;
   border: 1px solid #ff7a42;
@@ -503,6 +564,7 @@ img {
   position: relative;
   top: 6px;
 }
+
 .contact .content-map iframe {
   width: 100%;
   border-radius: 5px 0 0 5px;
@@ -530,6 +592,7 @@ footer {
     height: 365px;
   }
 }
+
 @media (max-width: 768px) {
   .intro .content img {
     left: 0;
@@ -548,6 +611,7 @@ footer {
     top: 300px;
   }
 }
+
 @media (max-width: 576px) {
   .open-hours .hours {
     margin: 0;
@@ -588,6 +652,7 @@ footer {
     border-radius: 5px;
   }
 }
+
 @media (max-width: 360px) {
   .container {
     padding-left: 20px;
