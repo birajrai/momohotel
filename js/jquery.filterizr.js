@@ -12,7 +12,6 @@
  * @license MIT
  */
 
-
 var Filterizr = (function (t) {
     var e = {};
     function n(r) {
@@ -27,13 +26,20 @@ var Filterizr = (function (t) {
             n.o(t, e) || Object.defineProperty(t, e, { enumerable: !0, get: r });
         }),
         (n.r = function (t) {
-            "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(t, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(t, "__esModule", { value: !0 });
+            'undefined' != typeof Symbol &&
+                Symbol.toStringTag &&
+                Object.defineProperty(t, Symbol.toStringTag, { value: 'Module' }),
+                Object.defineProperty(t, '__esModule', { value: !0 });
         }),
         (n.t = function (t, e) {
             if ((1 & e && (t = n(t)), 8 & e)) return t;
-            if (4 & e && "object" == typeof t && t && t.__esModule) return t;
+            if (4 & e && 'object' == typeof t && t && t.__esModule) return t;
             var r = Object.create(null);
-            if ((n.r(r), Object.defineProperty(r, "default", { enumerable: !0, value: t }), 2 & e && "string" != typeof t))
+            if (
+                (n.r(r),
+                Object.defineProperty(r, 'default', { enumerable: !0, value: t }),
+                2 & e && 'string' != typeof t)
+            )
                 for (var i in t)
                     n.d(
                         r,
@@ -53,30 +59,46 @@ var Filterizr = (function (t) {
                     : function () {
                           return t;
                       };
-            return n.d(e, "a", e), e;
+            return n.d(e, 'a', e), e;
         }),
         (n.o = function (t, e) {
             return Object.prototype.hasOwnProperty.call(t, e);
         }),
-        (n.p = ""),
+        (n.p = ''),
         n((n.s = 4))
     );
 })([
     function (t, e, n) {
-        "use strict";
-        var r = { IDLE: "IDLE", FILTERING: "FILTERING", SORTING: "SORTING", SHUFFLING: "SHUFFLING" },
-            i = { SAME_SIZE: "sameSize", SAME_HEIGHT: "sameHeight", SAME_WIDTH: "sameWidth", PACKED: "packed", HORIZONTAL: "horizontal", VERTICAL: "vertical" },
-            o = /(^linear$)|(^ease-in-out$)|(^ease-in$)|(^ease-out$)|(^ease$)|(^step-start$)|(^step-end$)|(^steps\(\d\s*,\s*(end|start)\))$|(^cubic-bezier\((\d*\.*\d+)\s*,\s*(\d*\.*\d+)\s*,\s*(\d*\.*\d+)\s*,\s*(\d*\.*\d+)\))$/,
+        'use strict';
+        var r = { IDLE: 'IDLE', FILTERING: 'FILTERING', SORTING: 'SORTING', SHUFFLING: 'SHUFFLING' },
+            i = {
+                SAME_SIZE: 'sameSize',
+                SAME_HEIGHT: 'sameHeight',
+                SAME_WIDTH: 'sameWidth',
+                PACKED: 'packed',
+                HORIZONTAL: 'horizontal',
+                VERTICAL: 'vertical',
+            },
+            o =
+                /(^linear$)|(^ease-in-out$)|(^ease-in$)|(^ease-out$)|(^ease$)|(^step-start$)|(^step-end$)|(^steps\(\d\s*,\s*(end|start)\))$|(^cubic-bezier\((\d*\.*\d+)\s*,\s*(\d*\.*\d+)\s*,\s*(\d*\.*\d+)\s*,\s*(\d*\.*\d+)\))$/,
             s = function (t, e, n, r, i) {
                 if (void 0 !== e) {
-                    var o = new Error('Filterizr: expected type of option "' + t + '" to be "' + n + '", but its type is: "' + typeof e + '"'),
+                    var o = new Error(
+                            'Filterizr: expected type of option "' +
+                                t +
+                                '" to be "' +
+                                n +
+                                '", but its type is: "' +
+                                typeof e +
+                                '"'
+                        ),
                         s = !1,
                         a = !1,
-                        u = n.includes("array");
+                        u = n.includes('array');
                     if (((typeof e).match(n) ? (s = !0) : !s && u && (a = Array.isArray(e)), !s && !u)) throw o;
                     if (!s && u && !a) throw o;
                     var c = function (t) {
-                        return t ? " For further help read here: " + t : "";
+                        return t ? ' For further help read here: ' + t : '';
                     };
                     if (Array.isArray(r)) {
                         var l = !1;
@@ -94,14 +116,17 @@ var Filterizr = (function (t) {
                                         .map(function (t) {
                                             return '"' + t + '"';
                                         })
-                                        .join(", ") +
+                                        .join(', ') +
                                     '. Value received: "' +
                                     e +
                                     '".' +
                                     c(i)
                             );
-                    } else if ("string" == typeof e && r instanceof RegExp) {
-                        if (!e.match(r)) throw new Error('Filterizr: invalid value "' + e + '" for option "' + t + '" received.' + c(i));
+                    } else if ('string' == typeof e && r instanceof RegExp) {
+                        if (!e.match(r))
+                            throw new Error(
+                                'Filterizr: invalid value "' + e + '" for option "' + t + '" received.' + c(i)
+                            );
                     }
                 }
             },
@@ -121,23 +146,27 @@ var Filterizr = (function (t) {
                 return (
                     t.length === e.length &&
                     t.reduce(function (t, n, r) {
-                        var i = n.getSortAttribute("index"),
-                            o = e[r].getSortAttribute("index");
+                        var i = n.getSortAttribute('index'),
+                            o = e[r].getSortAttribute('index');
                         return t && i === o;
                     }, !0)
                 );
             };
         var c = function (t) {
-            return "string" == typeof t ? document.querySelector(t) : t;
+            return 'string' == typeof t ? document.querySelector(t) : t;
         };
         function l(t) {
-            return t && "object" == typeof t && !Array.isArray(t);
+            return t && 'object' == typeof t && !Array.isArray(t);
         }
         function f(t) {
             for (var e, n, r = [], i = 1; i < arguments.length; i++) r[i - 1] = arguments[i];
             if (!r.length) return t;
             var o = r.shift();
-            if (l(t) && l(o)) for (var s in o) l(o[s]) ? (t[s] || Object.assign(t, (((e = {})[s] = {}), e)), f(t[s], o[s])) : Object.assign(t, (((n = {})[s] = o[s]), n));
+            if (l(t) && l(o))
+                for (var s in o)
+                    l(o[s])
+                        ? (t[s] || Object.assign(t, (((e = {})[s] = {}), e)), f(t[s], o[s]))
+                        : Object.assign(t, (((n = {})[s] = o[s]), n));
             return f.apply(void 0, [t].concat(r));
         }
         var h = function () {};
@@ -203,21 +232,33 @@ var Filterizr = (function (t) {
             })(),
             v = {
                 animationDuration: 0.5,
-                callbacks: { onInit: h, onFilteringStart: h, onFilteringEnd: h, onShufflingStart: h, onShufflingEnd: h, onSortingStart: h, onSortingEnd: h },
-                controlsSelector: "",
+                callbacks: {
+                    onInit: h,
+                    onFilteringStart: h,
+                    onFilteringEnd: h,
+                    onShufflingStart: h,
+                    onShufflingEnd: h,
+                    onSortingStart: h,
+                    onSortingEnd: h,
+                },
+                controlsSelector: '',
                 delay: 0,
-                delayMode: "progressive",
-                easing: "ease-out",
-                filter: "all",
-                filterOutCss: { opacity: 0, transform: "scale(0.5)" },
-                filterInCss: { opacity: 1, transform: "scale(1)" },
-                gridItemsSelector: ".filtr-item",
+                delayMode: 'progressive',
+                easing: 'ease-out',
+                filter: 'all',
+                filterOutCss: { opacity: 0, transform: 'scale(0.5)' },
+                filterInCss: { opacity: 1, transform: 'scale(1)' },
+                gridItemsSelector: '.filtr-item',
                 gutterPixels: 0,
                 layout: i.SAME_SIZE,
-                multifilterLogicalOperator: "or",
-                searchTerm: "",
+                multifilterLogicalOperator: 'or',
+                searchTerm: '',
                 setupControls: !0,
-                spinner: { enabled: !1, fillColor: "#2184D0", styles: { height: "75px", margin: "0 auto", width: "75px", "z-index": 2 } },
+                spinner: {
+                    enabled: !1,
+                    fillColor: '#2184D0',
+                    styles: { height: '75px', margin: '0 auto', width: '75px', 'z-index': 2 },
+                },
             },
             g = (function () {
                 function t(t) {
@@ -234,7 +275,7 @@ var Filterizr = (function (t) {
                         this.filter = this.toggleFilter(this.filter, t);
                     }),
                     (t.prototype.toggleFilter = function (t, e) {
-                        if ("all" === t) return e;
+                        if ('all' === t) return e;
                         if (Array.isArray(t)) {
                             if (t.includes(e)) {
                                 var n = t.filter(function (t) {
@@ -244,7 +285,7 @@ var Filterizr = (function (t) {
                             }
                             return t.concat([e]);
                         }
-                        return t === e ? "all" : [t, e];
+                        return t === e ? 'all' : [t, e];
                     }),
                     t
                 );
@@ -253,7 +294,9 @@ var Filterizr = (function (t) {
                 return (m =
                     Object.assign ||
                     function (t) {
-                        for (var e, n = 1, r = arguments.length; n < r; n++) for (var i in (e = arguments[n])) Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
+                        for (var e, n = 1, r = arguments.length; n < r; n++)
+                            for (var i in (e = arguments[n]))
+                                Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
                         return t;
                     }).apply(this, arguments);
             },
@@ -263,28 +306,28 @@ var Filterizr = (function (t) {
                     this.options = this.convertToFilterizrOptions(e);
                 }
                 return (
-                    Object.defineProperty(t.prototype, "isSpinnerEnabled", {
+                    Object.defineProperty(t.prototype, 'isSpinnerEnabled', {
                         get: function () {
                             return this.options.spinner.enabled;
                         },
                         enumerable: !0,
                         configurable: !0,
                     }),
-                    Object.defineProperty(t.prototype, "areControlsEnabled", {
+                    Object.defineProperty(t.prototype, 'areControlsEnabled', {
                         get: function () {
                             return this.options.setupControls;
                         },
                         enumerable: !0,
                         configurable: !0,
                     }),
-                    Object.defineProperty(t.prototype, "controlsSelector", {
+                    Object.defineProperty(t.prototype, 'controlsSelector', {
                         get: function () {
                             return this.options.controlsSelector;
                         },
                         enumerable: !0,
                         configurable: !0,
                     }),
-                    Object.defineProperty(t.prototype, "filter", {
+                    Object.defineProperty(t.prototype, 'filter', {
                         get: function () {
                             return this.options.filter.get();
                         },
@@ -297,7 +340,7 @@ var Filterizr = (function (t) {
                     (t.prototype.toggleFilter = function (t) {
                         this.options.filter.toggle(t);
                     }),
-                    Object.defineProperty(t.prototype, "searchTerm", {
+                    Object.defineProperty(t.prototype, 'searchTerm', {
                         get: function () {
                             return this.options.searchTerm;
                         },
@@ -325,21 +368,27 @@ var Filterizr = (function (t) {
                     }),
                     (t.prototype.validate = function (t) {
                         return (
-                            s("animationDuration", t.animationDuration, "number"),
-                            s("callbacks", t.callbacks, "object"),
-                            s("controlsSelector", t.controlsSelector, "string"),
-                            s("delay", t.delay, "number"),
-                            s("easing", t.easing, "string", o, "https://www.w3schools.com/cssref/css3_pr_transition-timing-function.asp"),
-                            s("delayMode", t.delayMode, "string", ["progressive", "alternate"]),
-                            s("filter", t.filter, "string|number|array"),
-                            s("filterOutCss", t.filterOutCss, "object"),
-                            s("filterInCss", t.filterOutCss, "object"),
-                            s("gridItemsSelector", t.gridItemsSelector, "string"),
-                            s("gutterPixels", t.gutterPixels, "number"),
-                            s("layout", t.layout, "string", Object.values(i)),
-                            s("multifilterLogicalOperator", t.multifilterLogicalOperator, "string", ["and", "or"]),
-                            s("searchTerm", t.searchTerm, "string"),
-                            s("setupControls", t.setupControls, "boolean"),
+                            s('animationDuration', t.animationDuration, 'number'),
+                            s('callbacks', t.callbacks, 'object'),
+                            s('controlsSelector', t.controlsSelector, 'string'),
+                            s('delay', t.delay, 'number'),
+                            s(
+                                'easing',
+                                t.easing,
+                                'string',
+                                o,
+                                'https://www.w3schools.com/cssref/css3_pr_transition-timing-function.asp'
+                            ),
+                            s('delayMode', t.delayMode, 'string', ['progressive', 'alternate']),
+                            s('filter', t.filter, 'string|number|array'),
+                            s('filterOutCss', t.filterOutCss, 'object'),
+                            s('filterInCss', t.filterOutCss, 'object'),
+                            s('gridItemsSelector', t.gridItemsSelector, 'string'),
+                            s('gutterPixels', t.gutterPixels, 'number'),
+                            s('layout', t.layout, 'string', Object.values(i)),
+                            s('multifilterLogicalOperator', t.multifilterLogicalOperator, 'string', ['and', 'or']),
+                            s('searchTerm', t.searchTerm, 'string'),
+                            s('setupControls', t.setupControls, 'boolean'),
                             t
                         );
                     }),
@@ -348,35 +397,40 @@ var Filterizr = (function (t) {
             })(),
             w = (function () {
                 function t(t, e) {
-                    void 0 === e && (e = ""),
+                    void 0 === e && (e = ''),
                         (this.filterizr = t),
                         (this.selector = e),
-                        (this.filterControls = new y(document.querySelectorAll(e + "[data-filter]"))),
-                        (this.multiFilterControls = new y(document.querySelectorAll(e + "[data-multifilter]"))),
-                        (this.shuffleControls = new y(document.querySelectorAll(e + "[data-shuffle]"))),
-                        (this.searchControls = new y(document.querySelectorAll(e + "[data-search]"))),
-                        (this.sortAscControls = new y(document.querySelectorAll(e + "[data-sortAsc]"))),
-                        (this.sortDescControls = new y(document.querySelectorAll(e + "[data-sortDesc]"))),
+                        (this.filterControls = new y(document.querySelectorAll(e + '[data-filter]'))),
+                        (this.multiFilterControls = new y(document.querySelectorAll(e + '[data-multifilter]'))),
+                        (this.shuffleControls = new y(document.querySelectorAll(e + '[data-shuffle]'))),
+                        (this.searchControls = new y(document.querySelectorAll(e + '[data-search]'))),
+                        (this.sortAscControls = new y(document.querySelectorAll(e + '[data-sortAsc]'))),
+                        (this.sortDescControls = new y(document.querySelectorAll(e + '[data-sortDesc]'))),
                         this.initialize();
                 }
                 return (
                     (t.prototype.destroy = function () {
-                        this.filterControls.destroy(), this.multiFilterControls.destroy(), this.shuffleControls.destroy(), this.searchControls.destroy(), this.sortAscControls.destroy(), this.sortDescControls.destroy();
+                        this.filterControls.destroy(),
+                            this.multiFilterControls.destroy(),
+                            this.shuffleControls.destroy(),
+                            this.searchControls.destroy(),
+                            this.sortAscControls.destroy(),
+                            this.sortDescControls.destroy();
                     }),
                     (t.prototype.initialize = function () {
                         var t = this.filterizr,
                             e = this.selector;
-                        this.filterControls.on("click", function (e) {
-                            var n = e.currentTarget.getAttribute("data-filter");
+                        this.filterControls.on('click', function (e) {
+                            var n = e.currentTarget.getAttribute('data-filter');
                             t.filter(n);
                         }),
-                            this.multiFilterControls.on("click", function (e) {
-                                var n = e.target.getAttribute("data-multifilter");
+                            this.multiFilterControls.on('click', function (e) {
+                                var n = e.target.getAttribute('data-multifilter');
                                 t.toggleFilter(n);
                             }),
-                            this.shuffleControls.on("click", t.shuffle.bind(t)),
+                            this.shuffleControls.on('click', t.shuffle.bind(t)),
                             this.searchControls.on(
-                                "keyup",
+                                'keyup',
                                 a(
                                     function (e) {
                                         var n = e.target.value;
@@ -386,13 +440,13 @@ var Filterizr = (function (t) {
                                     !1
                                 )
                             ),
-                            this.sortAscControls.on("click", function () {
-                                var n = document.querySelector(e + "[data-sortOrder]").value;
-                                t.sort(n, "asc");
+                            this.sortAscControls.on('click', function () {
+                                var n = document.querySelector(e + '[data-sortOrder]').value;
+                                t.sort(n, 'asc');
                             }),
-                            this.sortDescControls.on("click", function () {
-                                var n = document.querySelector(e + "[data-sortOrder]").value;
-                                t.sort(n, "desc");
+                            this.sortDescControls.on('click', function () {
+                                var n = document.querySelector(e + '[data-sortOrder]').value;
+                                t.sort(n, 'desc');
                             });
                     }),
                     t
@@ -403,7 +457,7 @@ var Filterizr = (function (t) {
                     (this.node = t), (this.options = e), (this.eventReceiver = new y(this.node));
                 }
                 return (
-                    Object.defineProperty(t.prototype, "dimensions", {
+                    Object.defineProperty(t.prototype, 'dimensions', {
                         get: function () {
                             return { width: this.node.clientWidth, height: this.node.clientHeight };
                         },
@@ -423,7 +477,7 @@ var Filterizr = (function (t) {
         function I(t, e) {
             var n = e.get(),
                 r = n.delay;
-            return "progressive" === n.delayMode ? r * t : t % 2 == 0 ? r : 0;
+            return 'progressive' === n.delayMode ? r * t : t % 2 == 0 ? r : 0;
         }
         var S,
             O = function (t, e, n, r) {
@@ -468,7 +522,7 @@ var Filterizr = (function (t) {
                     };
                 return (
                     (o = { next: a(0), throw: a(1), return: a(2) }),
-                    "function" == typeof Symbol &&
+                    'function' == typeof Symbol &&
                         (o[Symbol.iterator] = function () {
                             return this;
                         }),
@@ -477,10 +531,21 @@ var Filterizr = (function (t) {
                 function a(o) {
                     return function (a) {
                         return (function (o) {
-                            if (n) throw new TypeError("Generator is already executing.");
+                            if (n) throw new TypeError('Generator is already executing.');
                             for (; s; )
                                 try {
-                                    if (((n = 1), r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done)) return i;
+                                    if (
+                                        ((n = 1),
+                                        r &&
+                                            (i =
+                                                2 & o[0]
+                                                    ? r.return
+                                                    : o[0]
+                                                    ? r.throw || ((i = r.return) && i.call(r), 0)
+                                                    : r.next) &&
+                                            !(i = i.call(r, o[1])).done)
+                                    )
+                                        return i;
                                     switch (((r = 0), i && (o = [2 & o[0], i.value]), o[0])) {
                                         case 0:
                                         case 1:
@@ -495,7 +560,10 @@ var Filterizr = (function (t) {
                                             (o = s.ops.pop()), s.trys.pop();
                                             continue;
                                         default:
-                                            if (!(i = (i = s.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            if (
+                                                !(i = (i = s.trys).length > 0 && i[i.length - 1]) &&
+                                                (6 === o[0] || 2 === o[0])
+                                            ) {
                                                 s = 0;
                                                 continue;
                                             }
@@ -547,7 +615,7 @@ var Filterizr = (function (t) {
                                 return [
                                     2,
                                     new Promise(function (e) {
-                                        t.eventReceiver.on("transitionend", function () {
+                                        t.eventReceiver.on('transitionend', function () {
                                             t.eventReceiver.destroy(), e();
                                         }),
                                             setTimeout(function () {
@@ -603,7 +671,7 @@ var Filterizr = (function (t) {
                     };
                 return (
                     (o = { next: a(0), throw: a(1), return: a(2) }),
-                    "function" == typeof Symbol &&
+                    'function' == typeof Symbol &&
                         (o[Symbol.iterator] = function () {
                             return this;
                         }),
@@ -612,10 +680,21 @@ var Filterizr = (function (t) {
                 function a(o) {
                     return function (a) {
                         return (function (o) {
-                            if (n) throw new TypeError("Generator is already executing.");
+                            if (n) throw new TypeError('Generator is already executing.');
                             for (; s; )
                                 try {
-                                    if (((n = 1), r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done)) return i;
+                                    if (
+                                        ((n = 1),
+                                        r &&
+                                            (i =
+                                                2 & o[0]
+                                                    ? r.return
+                                                    : o[0]
+                                                    ? r.throw || ((i = r.return) && i.call(r), 0)
+                                                    : r.next) &&
+                                            !(i = i.call(r, o[1])).done)
+                                    )
+                                        return i;
                                     switch (((r = 0), i && (o = [2 & o[0], i.value]), o[0])) {
                                         case 0:
                                         case 1:
@@ -630,7 +709,10 @@ var Filterizr = (function (t) {
                                             (o = s.ops.pop()), s.trys.pop();
                                             continue;
                                         default:
-                                            if (!(i = (i = s.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            if (
+                                                !(i = (i = s.trys).length > 0 && i[i.length - 1]) &&
+                                                (6 === o[0] || 2 === o[0])
+                                            ) {
                                                 s = 0;
                                                 continue;
                                             }
@@ -667,7 +749,7 @@ var Filterizr = (function (t) {
                 }
                 return (
                     (t.prototype.destroy = function () {
-                        this.node.removeAttribute("style");
+                        this.node.removeAttribute('style');
                     }),
                     (t.prototype.animate = function (t) {
                         return k(this, void 0, void 0, function () {
@@ -745,7 +827,7 @@ var Filterizr = (function (t) {
                     };
                 return (
                     (o = { next: a(0), throw: a(1), return: a(2) }),
-                    "function" == typeof Symbol &&
+                    'function' == typeof Symbol &&
                         (o[Symbol.iterator] = function () {
                             return this;
                         }),
@@ -754,10 +836,21 @@ var Filterizr = (function (t) {
                 function a(o) {
                     return function (a) {
                         return (function (o) {
-                            if (n) throw new TypeError("Generator is already executing.");
+                            if (n) throw new TypeError('Generator is already executing.');
                             for (; s; )
                                 try {
-                                    if (((n = 1), r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done)) return i;
+                                    if (
+                                        ((n = 1),
+                                        r &&
+                                            (i =
+                                                2 & o[0]
+                                                    ? r.return
+                                                    : o[0]
+                                                    ? r.throw || ((i = r.return) && i.call(r), 0)
+                                                    : r.next) &&
+                                            !(i = i.call(r, o[1])).done)
+                                    )
+                                        return i;
                                     switch (((r = 0), i && (o = [2 & o[0], i.value]), o[0])) {
                                         case 0:
                                         case 1:
@@ -772,7 +865,10 @@ var Filterizr = (function (t) {
                                             (o = s.ops.pop()), s.trys.pop();
                                             continue;
                                         default:
-                                            if (!(i = (i = s.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            if (
+                                                !(i = (i = s.trys).length > 0 && i[i.length - 1]) &&
+                                                (6 === o[0] || 2 === o[0])
+                                            ) {
                                                 s = 0;
                                                 continue;
                                             }
@@ -815,25 +911,47 @@ var Filterizr = (function (t) {
                         var t;
                         this.set(
                             ((t = this.options),
-                            Object.assign({}, t.get().filterOutCss, { "-webkit-backface-visibility": "hidden", perspective: "1000px", "-webkit-perspective": "1000px", "-webkit-transform-style": "preserve-3d", position: "absolute" }))
+                            Object.assign({}, t.get().filterOutCss, {
+                                '-webkit-backface-visibility': 'hidden',
+                                perspective: '1000px',
+                                '-webkit-perspective': '1000px',
+                                '-webkit-transform-style': 'preserve-3d',
+                                position: 'absolute',
+                            }))
                         );
                     }),
                     (e.prototype.setFilteredStyles = function (t, e) {
                         this.set(
                             (function (t, e) {
-                                return Object.assign({}, e, { transform: (e.transform || "") + " translate3d(" + t.left + "px, " + t.top + "px, 0)" });
+                                return Object.assign({}, e, {
+                                    transform:
+                                        (e.transform || '') + ' translate3d(' + t.left + 'px, ' + t.top + 'px, 0)',
+                                });
                             })(t, e)
                         );
                     }),
                     (e.prototype.updateTransitionStyle = function () {
                         var t, e, n;
-                        this.set(((t = this._index), (e = this.options), { transition: "all " + (n = e.get()).animationDuration + "s " + n.easing + " " + I(t, e) + "ms, width 1ms" }));
+                        this.set(
+                            ((t = this._index),
+                            (e = this.options),
+                            {
+                                transition:
+                                    'all ' +
+                                    (n = e.get()).animationDuration +
+                                    's ' +
+                                    n.easing +
+                                    ' ' +
+                                    I(t, e) +
+                                    'ms, width 1ms',
+                            })
+                        );
                     }),
                     (e.prototype.updateWidth = function () {
                         var t = this.options.get().gutterPixels,
                             e = this.node.parentElement.clientWidth,
                             n = this.node.clientWidth,
-                            r = n - t * (1 / Math.floor(e / n) + 1) + "px";
+                            r = n - t * (1 / Math.floor(e / n) + 1) + 'px';
                         this.set({ width: r });
                     }),
                     (e.prototype.enableTransitions = function () {
@@ -843,7 +961,7 @@ var Filterizr = (function (t) {
                                 return [
                                     2,
                                     new Promise(function (e) {
-                                        !!t.node.querySelectorAll("img").length
+                                        !!t.node.querySelectorAll('img').length
                                             ? F(t.node, function () {
                                                   setTimeout(function () {
                                                       t.updateTransitionStyle(), e();
@@ -858,22 +976,22 @@ var Filterizr = (function (t) {
                         });
                     }),
                     (e.prototype.disableTransitions = function () {
-                        this.remove("transition");
+                        this.remove('transition');
                     }),
                     (e.prototype.setZIndex = function (t) {
-                        this.set({ "z-index": t });
+                        this.set({ 'z-index': t });
                     }),
                     (e.prototype.removeZIndex = function () {
-                        this.remove("z-index");
+                        this.remove('z-index');
                     }),
                     (e.prototype.removeWidth = function () {
-                        this.remove("width");
+                        this.remove('width');
                     }),
                     (e.prototype.setHidden = function () {
-                        this.set({ display: "none" });
+                        this.set({ display: 'none' });
                     }),
                     (e.prototype.setVisible = function () {
-                        this.remove("display");
+                        this.remove('display');
                     }),
                     e
                 );
@@ -901,7 +1019,9 @@ var Filterizr = (function (t) {
                 return (D =
                     Object.assign ||
                     function (t) {
-                        for (var e, n = 1, r = arguments.length; n < r; n++) for (var i in (e = arguments[n])) Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
+                        for (var e, n = 1, r = arguments.length; n < r; n++)
+                            for (var i in (e = arguments[n]))
+                                Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
                         return t;
                     }).apply(this, arguments);
             },
@@ -914,15 +1034,19 @@ var Filterizr = (function (t) {
                         (i.sortData = D(
                             {},
                             (function (t) {
-                                for (var e = { category: "", sort: "" }, n = 0, r = t.attributes, i = r.length; n < i; n++) {
+                                for (
+                                    var e = { category: '', sort: '' }, n = 0, r = t.attributes, i = r.length;
+                                    n < i;
+                                    n++
+                                ) {
                                     var o = r[n],
                                         s = o.nodeName,
                                         a = o.nodeValue;
-                                    s.includes("data") && (e[s.slice(5, s.length)] = a);
+                                    s.includes('data') && (e[s.slice(5, s.length)] = a);
                                 }
                                 return delete e.category, delete e.sort, e;
                             })(e),
-                            { index: n, sortData: e.getAttribute("data-sort") }
+                            { index: n, sortData: e.getAttribute('data-sort') }
                         )),
                         (i.styledNode = new L(e, n, r)),
                         i.styles.initialize(),
@@ -932,7 +1056,7 @@ var Filterizr = (function (t) {
                 }
                 return (
                     z(e, t),
-                    Object.defineProperty(e.prototype, "styles", {
+                    Object.defineProperty(e.prototype, 'styles', {
                         get: function () {
                             return this.styledNode;
                         },
@@ -954,19 +1078,21 @@ var Filterizr = (function (t) {
                         return this.node.textContent.toLowerCase().includes(t);
                     }),
                     (e.prototype.getCategories = function () {
-                        return this.node.getAttribute("data-category").split(/\s*,\s*/g);
+                        return this.node.getAttribute('data-category').split(/\s*,\s*/g);
                     }),
                     (e.prototype.getSortAttribute = function (t) {
                         return this.sortData[t];
                     }),
                     (e.prototype.bindEvents = function () {
                         var t = this;
-                        this.eventReceiver.on("transitionend", function () {
-                            t.filteredOut ? (t.node.classList.add("filteredOut"), t.styles.setZIndex(-1e3), t.styles.setHidden()) : (t.node.classList.remove("filteredOut"), t.styles.removeZIndex());
+                        this.eventReceiver.on('transitionend', function () {
+                            t.filteredOut
+                                ? (t.node.classList.add('filteredOut'), t.styles.setZIndex(-1e3), t.styles.setHidden())
+                                : (t.node.classList.remove('filteredOut'), t.styles.removeZIndex());
                         });
                     }),
                     (e.prototype.unbindEvents = function () {
-                        this.eventReceiver.off("transitionend");
+                        this.eventReceiver.off('transitionend');
                     }),
                     e
                 );
@@ -1033,7 +1159,7 @@ var Filterizr = (function (t) {
                     };
                 return (
                     (o = { next: a(0), throw: a(1), return: a(2) }),
-                    "function" == typeof Symbol &&
+                    'function' == typeof Symbol &&
                         (o[Symbol.iterator] = function () {
                             return this;
                         }),
@@ -1042,10 +1168,21 @@ var Filterizr = (function (t) {
                 function a(o) {
                     return function (a) {
                         return (function (o) {
-                            if (n) throw new TypeError("Generator is already executing.");
+                            if (n) throw new TypeError('Generator is already executing.');
                             for (; s; )
                                 try {
-                                    if (((n = 1), r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done)) return i;
+                                    if (
+                                        ((n = 1),
+                                        r &&
+                                            (i =
+                                                2 & o[0]
+                                                    ? r.return
+                                                    : o[0]
+                                                    ? r.throw || ((i = r.return) && i.call(r), 0)
+                                                    : r.next) &&
+                                            !(i = i.call(r, o[1])).done)
+                                    )
+                                        return i;
                                     switch (((r = 0), i && (o = [2 & o[0], i.value]), o[0])) {
                                         case 0:
                                         case 1:
@@ -1060,7 +1197,10 @@ var Filterizr = (function (t) {
                                             (o = s.ops.pop()), s.trys.pop();
                                             continue;
                                         default:
-                                            if (!(i = (i = s.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            if (
+                                                !(i = (i = s.trys).length > 0 && i[i.length - 1]) &&
+                                                (6 === o[0] || 2 === o[0])
+                                            ) {
                                                 s = 0;
                                                 continue;
                                             }
@@ -1161,14 +1301,14 @@ var Filterizr = (function (t) {
                     (this.filterItems = t), (this.styledFilterItems = new q(t)), (this.options = e);
                 }
                 return (
-                    Object.defineProperty(t.prototype, "styles", {
+                    Object.defineProperty(t.prototype, 'styles', {
                         get: function () {
                             return this.styledFilterItems;
                         },
                         enumerable: !0,
                         configurable: !0,
                     }),
-                    Object.defineProperty(t.prototype, "length", {
+                    Object.defineProperty(t.prototype, 'length', {
                         get: function () {
                             return this.filterItems.length;
                         },
@@ -1195,7 +1335,7 @@ var Filterizr = (function (t) {
                         var e = this,
                             n = this.options.searchTerm,
                             r = this.search(this.filterItems, n);
-                        return "all" === t
+                        return 'all' === t
                             ? r
                             : r.filter(function (n) {
                                   return e.shouldBeFiltered(n.getCategories(), t);
@@ -1212,7 +1352,7 @@ var Filterizr = (function (t) {
                         });
                     }),
                     (t.prototype.sort = function (t, e) {
-                        void 0 === t && (t = "index"), void 0 === e && (e = "asc");
+                        void 0 === t && (t = 'index'), void 0 === e && (e = 'asc');
                         var n,
                             r,
                             i =
@@ -1229,7 +1369,7 @@ var Filterizr = (function (t) {
                                         };
                                     })(r)
                                 )),
-                            o = "asc" === e ? i : i.reverse();
+                            o = 'asc' === e ? i : i.reverse();
                         this.filterItems = o;
                     }),
                     (t.prototype.shuffle = function () {
@@ -1264,7 +1404,7 @@ var Filterizr = (function (t) {
                             r,
                             i = this.options.getRaw().multifilterLogicalOperator;
                         return Array.isArray(e)
-                            ? "or" === i
+                            ? 'or' === i
                                 ? !!((n = t),
                                   (r = e),
                                   Array.prototype.filter.call(n, function (t) {
@@ -1284,12 +1424,14 @@ var Filterizr = (function (t) {
                 return (B =
                     Object.assign ||
                     function (t) {
-                        for (var e, n = 1, r = arguments.length; n < r; n++) for (var i in (e = arguments[n])) Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
+                        for (var e, n = 1, r = arguments.length; n < r; n++)
+                            for (var i in (e = arguments[n]))
+                                Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
                         return t;
                     }).apply(this, arguments);
             },
             Q = function (t) {
-                return { padding: t.get().gutterPixels + "px" };
+                return { padding: t.get().gutterPixels + 'px' };
             },
             Z = (function () {
                 var t = function (e, n) {
@@ -1318,13 +1460,16 @@ var Filterizr = (function (t) {
                     Z(e, t),
                     (e.prototype.initialize = function () {
                         var t;
-                        this.set(((t = this.options), B({}, Q(t), { position: "relative", width: "100%", display: "flex", flexWrap: "wrap" })));
+                        this.set(
+                            ((t = this.options),
+                            B({}, Q(t), { position: 'relative', width: '100%', display: 'flex', flexWrap: 'wrap' }))
+                        );
                     }),
                     (e.prototype.updatePaddings = function () {
                         this.set(Q(this.options));
                     }),
                     (e.prototype.setHeight = function (t) {
-                        this.set({ height: t + "px" });
+                        this.set({ height: t + 'px' });
                     }),
                     e
                 );
@@ -1351,19 +1496,29 @@ var Filterizr = (function (t) {
             V = (function (t) {
                 function e(e, n) {
                     var i = this;
-                    if (!e) throw new Error("Filterizr: could not initialize container, check the selector or node you passed to the constructor exists.");
-                    return ((i = t.call(this, e, n) || this).styledNode = new $(e, n)), (i._filterizrState = r.IDLE), i.styles.initialize(), (i.filterItems = i.makeFilterItems(i.options)), i.bindEvents(), i;
+                    if (!e)
+                        throw new Error(
+                            'Filterizr: could not initialize container, check the selector or node you passed to the constructor exists.'
+                        );
+                    return (
+                        ((i = t.call(this, e, n) || this).styledNode = new $(e, n)),
+                        (i._filterizrState = r.IDLE),
+                        i.styles.initialize(),
+                        (i.filterItems = i.makeFilterItems(i.options)),
+                        i.bindEvents(),
+                        i
+                    );
                 }
                 return (
                     J(e, t),
-                    Object.defineProperty(e.prototype, "styles", {
+                    Object.defineProperty(e.prototype, 'styles', {
                         get: function () {
                             return this.styledNode;
                         },
                         enumerable: !0,
                         configurable: !0,
                     }),
-                    Object.defineProperty(e.prototype, "filterizrState", {
+                    Object.defineProperty(e.prototype, 'filterizrState', {
                         set: function (t) {
                             this._filterizrState = t;
                         },
@@ -1378,12 +1533,15 @@ var Filterizr = (function (t) {
                                 return new N(e, n, t);
                             }),
                             n = new G(e, t);
-                        if (!n.length) throw new Error("Filterizr: cannot initialize empty container. Make sure the gridItemsSelector option corresponds to the selector of your grid's items");
+                        if (!n.length)
+                            throw new Error(
+                                "Filterizr: cannot initialize empty container. Make sure the gridItemsSelector option corresponds to the selector of your grid's items"
+                            );
                         return n.styles.updateWidth(), n;
                     }),
                     (e.prototype.insertItem = function (t) {
                         var e = t.cloneNode(!0);
-                        e.removeAttribute("style"), this.node.appendChild(e);
+                        e.removeAttribute('style'), this.node.appendChild(e);
                         var n = new N(e, this.filterItems.length, this.options);
                         n.styles.enableTransitions(), n.styles.updateWidth(), this.filterItems.push(n);
                     }),
@@ -1401,9 +1559,9 @@ var Filterizr = (function (t) {
                             o = e.delay,
                             s = e.delayMode,
                             u = e.gridItemsSelector,
-                            c = "progressive" === s ? o * this.filterItems.length : o;
+                            c = 'progressive' === s ? o * this.filterItems.length : o;
                         this.eventReceiver.on(
-                            "transitionend",
+                            'transitionend',
                             a(
                                 function (e) {
                                     if (
@@ -1413,13 +1571,13 @@ var Filterizr = (function (t) {
                                     ) {
                                         switch (t._filterizrState) {
                                             case r.FILTERING:
-                                                t.trigger("filteringEnd");
+                                                t.trigger('filteringEnd');
                                                 break;
                                             case r.SORTING:
-                                                t.trigger("sortingEnd");
+                                                t.trigger('sortingEnd');
                                                 break;
                                             case r.SHUFFLING:
-                                                t.trigger("shufflingEnd");
+                                                t.trigger('shufflingEnd');
                                         }
                                         t.filterizrState = r.IDLE;
                                     }
@@ -1428,23 +1586,23 @@ var Filterizr = (function (t) {
                                 !1
                             )
                         ),
-                            this.eventReceiver.on("init", i.onInit),
-                            this.eventReceiver.on("filteringStart", i.onFilteringStart),
-                            this.eventReceiver.on("filteringEnd", i.onFilteringEnd),
-                            this.eventReceiver.on("shufflingStart", i.onShufflingStart),
-                            this.eventReceiver.on("shufflingEnd", i.onShufflingEnd),
-                            this.eventReceiver.on("sortingStart", i.onSortingStart),
-                            this.eventReceiver.on("sortingEnd", i.onSortingEnd);
+                            this.eventReceiver.on('init', i.onInit),
+                            this.eventReceiver.on('filteringStart', i.onFilteringStart),
+                            this.eventReceiver.on('filteringEnd', i.onFilteringEnd),
+                            this.eventReceiver.on('shufflingStart', i.onShufflingStart),
+                            this.eventReceiver.on('shufflingEnd', i.onShufflingEnd),
+                            this.eventReceiver.on('sortingStart', i.onSortingStart),
+                            this.eventReceiver.on('sortingEnd', i.onSortingEnd);
                     }),
                     (e.prototype.unbindEvents = function () {
-                        this.eventReceiver.off("transitionend"),
-                            this.eventReceiver.off("init"),
-                            this.eventReceiver.off("filteringStart"),
-                            this.eventReceiver.off("filteringEnd"),
-                            this.eventReceiver.off("shufflingStart"),
-                            this.eventReceiver.off("shufflingEnd"),
-                            this.eventReceiver.off("sortingStart"),
-                            this.eventReceiver.off("sortingEnd");
+                        this.eventReceiver.off('transitionend'),
+                            this.eventReceiver.off('init'),
+                            this.eventReceiver.off('filteringStart'),
+                            this.eventReceiver.off('filteringEnd'),
+                            this.eventReceiver.off('shufflingStart'),
+                            this.eventReceiver.off('shufflingEnd'),
+                            this.eventReceiver.off('sortingStart'),
+                            this.eventReceiver.off('sortingEnd');
                     }),
                     e
                 );
@@ -1472,7 +1630,9 @@ var Filterizr = (function (t) {
                 return (K =
                     Object.assign ||
                     function (t) {
-                        for (var e, n = 1, r = arguments.length; n < r; n++) for (var i in (e = arguments[n])) Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
+                        for (var e, n = 1, r = arguments.length; n < r; n++)
+                            for (var i in (e = arguments[n]))
+                                Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
                         return t;
                     }).apply(this, arguments);
             },
@@ -1518,7 +1678,7 @@ var Filterizr = (function (t) {
                     };
                 return (
                     (o = { next: a(0), throw: a(1), return: a(2) }),
-                    "function" == typeof Symbol &&
+                    'function' == typeof Symbol &&
                         (o[Symbol.iterator] = function () {
                             return this;
                         }),
@@ -1527,10 +1687,21 @@ var Filterizr = (function (t) {
                 function a(o) {
                     return function (a) {
                         return (function (o) {
-                            if (n) throw new TypeError("Generator is already executing.");
+                            if (n) throw new TypeError('Generator is already executing.');
                             for (; s; )
                                 try {
-                                    if (((n = 1), r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done)) return i;
+                                    if (
+                                        ((n = 1),
+                                        r &&
+                                            (i =
+                                                2 & o[0]
+                                                    ? r.return
+                                                    : o[0]
+                                                    ? r.throw || ((i = r.return) && i.call(r), 0)
+                                                    : r.next) &&
+                                            !(i = i.call(r, o[1])).done)
+                                    )
+                                        return i;
                                     switch (((r = 0), i && (o = [2 & o[0], i.value]), o[0])) {
                                         case 0:
                                         case 1:
@@ -1545,7 +1716,10 @@ var Filterizr = (function (t) {
                                             (o = s.ops.pop()), s.trys.pop();
                                             continue;
                                         default:
-                                            if (!(i = (i = s.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            if (
+                                                !(i = (i = s.trys).length > 0 && i[i.length - 1]) &&
+                                                (6 === o[0] || 2 === o[0])
+                                            ) {
                                                 s = 0;
                                                 continue;
                                             }
@@ -1584,7 +1758,7 @@ var Filterizr = (function (t) {
                     U(e, t),
                     (e.prototype.initialize = function () {
                         var t = this.options.get().spinner.styles;
-                        this.set(K({}, t, { opacity: 1, transition: "all ease-out 500ms" }));
+                        this.set(K({}, t, { opacity: 1, transition: 'all ease-out 500ms' }));
                     }),
                     (e.prototype.fadeOut = function () {
                         return X(this, void 0, void 0, function () {
@@ -1643,7 +1817,7 @@ var Filterizr = (function (t) {
                     };
                 return (
                     (o = { next: a(0), throw: a(1), return: a(2) }),
-                    "function" == typeof Symbol &&
+                    'function' == typeof Symbol &&
                         (o[Symbol.iterator] = function () {
                             return this;
                         }),
@@ -1652,10 +1826,21 @@ var Filterizr = (function (t) {
                 function a(o) {
                     return function (a) {
                         return (function (o) {
-                            if (n) throw new TypeError("Generator is already executing.");
+                            if (n) throw new TypeError('Generator is already executing.');
                             for (; s; )
                                 try {
-                                    if (((n = 1), r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done)) return i;
+                                    if (
+                                        ((n = 1),
+                                        r &&
+                                            (i =
+                                                2 & o[0]
+                                                    ? r.return
+                                                    : o[0]
+                                                    ? r.throw || ((i = r.return) && i.call(r), 0)
+                                                    : r.next) &&
+                                            !(i = i.call(r, o[1])).done)
+                                    )
+                                        return i;
                                     switch (((r = 0), i && (o = [2 & o[0], i.value]), o[0])) {
                                         case 0:
                                         case 1:
@@ -1670,7 +1855,10 @@ var Filterizr = (function (t) {
                                             (o = s.ops.pop()), s.trys.pop();
                                             continue;
                                         default:
-                                            if (!(i = (i = s.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            if (
+                                                !(i = (i = s.trys).length > 0 && i[i.length - 1]) &&
+                                                (6 === o[0] || 2 === o[0])
+                                            ) {
                                                 s = 0;
                                                 continue;
                                             }
@@ -1711,15 +1899,15 @@ var Filterizr = (function (t) {
                                 '<?xml version="1.0" encoding="UTF-8"?><svg stroke="' +
                                 n.fillColor +
                                 '" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" stroke-width="2"><circle cx="22" cy="22" r="1"><animate attributeName="r" begin="0s" calcMode="spline" dur="1.8s" keySplines="0.165, 0.84, 0.44, 1" keyTimes="0; 1" repeatCount="indefinite" values="1; 20"/><animate attributeName="stroke-opacity" begin="0s" calcMode="spline" dur="1.8s" keySplines="0.3, 0.61, 0.355, 1" keyTimes="0; 1" repeatCount="indefinite" values="1; 0"/></circle><circle cx="22" cy="22" r="1"><animate attributeName="r" begin="-0.9s" calcMode="spline" dur="1.8s" keySplines="0.165, 0.84, 0.44, 1" keyTimes="0; 1" repeatCount="indefinite" values="1; 20"/><animate attributeName="stroke-opacity" begin="-0.9s" calcMode="spline" dur="1.8s" keySplines="0.3, 0.61, 0.355, 1" keyTimes="0; 1" repeatCount="indefinite" values="1; 0"/></circle></g></svg>'),
-                            (i = document.createElement("img")).classList.add("Filterizr__spinner"),
-                            (i.src = "data:image/svg+xml;base64," + window.btoa(r)),
-                            (i.alt = "Spinner"),
+                            (i = document.createElement('img')).classList.add('Filterizr__spinner'),
+                            (i.src = 'data:image/svg+xml;base64,' + window.btoa(r)),
+                            (i.alt = 'Spinner'),
                             i)),
                         (this.styledNode = new tt(this.node, e)),
                         this.initialize();
                 }
                 return (
-                    Object.defineProperty(t.prototype, "styles", {
+                    Object.defineProperty(t.prototype, 'styles', {
                         get: function () {
                             return this.styledNode;
                         },
@@ -1762,7 +1950,9 @@ var Filterizr = (function (t) {
                 return (ut =
                     Object.assign ||
                     function (t) {
-                        for (var e, n = 1, r = arguments.length; n < r; n++) for (var i in (e = arguments[n])) Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
+                        for (var e, n = 1, r = arguments.length; n < r; n++)
+                            for (var i in (e = arguments[n]))
+                                Object.prototype.hasOwnProperty.call(e, i) && (t[i] = e[i]);
                         return t;
                     }).apply(this, arguments);
             },
@@ -1780,18 +1970,39 @@ var Filterizr = (function (t) {
                             r,
                             i = t.length,
                             o = i > 0 ? t[0].h : 0;
-                        for (this.root.h = o, e = 0; e < i; e++) (r = t[e]), (n = this.findNode(this.root, r.w, r.h)) ? (r.fit = this.splitNode(n, r.w, r.h)) : (r.fit = this.growDown(r.w, r.h));
+                        for (this.root.h = o, e = 0; e < i; e++)
+                            (r = t[e]),
+                                (n = this.findNode(this.root, r.w, r.h))
+                                    ? (r.fit = this.splitNode(n, r.w, r.h))
+                                    : (r.fit = this.growDown(r.w, r.h));
                     }),
                     (t.prototype.findNode = function (t, e, n) {
-                        return t.used ? this.findNode(t.right, e, n) || this.findNode(t.down, e, n) : e <= t.w && n <= t.h ? t : null;
+                        return t.used
+                            ? this.findNode(t.right, e, n) || this.findNode(t.down, e, n)
+                            : e <= t.w && n <= t.h
+                            ? t
+                            : null;
                     }),
                     (t.prototype.splitNode = function (t, e, n) {
-                        return (t.used = !0), (t.down = { x: t.x, y: t.y + n, w: t.w, h: t.h - n }), (t.right = { x: t.x + e, y: t.y, w: t.w - e, h: n }), t;
+                        return (
+                            (t.used = !0),
+                            (t.down = { x: t.x, y: t.y + n, w: t.w, h: t.h - n }),
+                            (t.right = { x: t.x + e, y: t.y, w: t.w - e, h: n }),
+                            t
+                        );
                     }),
                     (t.prototype.growDown = function (t, e) {
                         var n;
                         return (
-                            (this.root = { used: !0, x: 0, y: 0, w: this.root.w, h: this.root.h + e, down: { x: 0, y: this.root.h, w: this.root.w, h: e }, right: this.root }),
+                            (this.root = {
+                                used: !0,
+                                x: 0,
+                                y: 0,
+                                w: this.root.w,
+                                h: this.root.h + e,
+                                down: { x: 0, y: this.root.h, w: this.root.w, h: e },
+                                right: this.root,
+                            }),
                             (n = this.findNode(this.root, t, e)) ? this.splitNode(n, t, e) : null
                         );
                     }),
@@ -1858,7 +2069,10 @@ var Filterizr = (function (t) {
                                         top: (a + n) * u,
                                     };
                                 });
-                            return { containerHeight: Object.keys(i).length * (e[0].height + n) + n, itemsPositions: o };
+                            return {
+                                containerHeight: Object.keys(i).length * (e[0].height + n) + n,
+                                itemsPositions: o,
+                            };
                         })(t, e, r);
                     case i.SAME_WIDTH:
                         return (function (t, e, n) {
@@ -1910,43 +2124,53 @@ var Filterizr = (function (t) {
                                         s = Math.floor(e / r);
                                     return { left: (e - r * s) * (i + n), top: s * (o + n) };
                                 });
-                            return { containerHeight: Math.ceil(e.length / r) * (e[0].height + n) + n, itemsPositions: i };
+                            return {
+                                containerHeight: Math.ceil(e.length / r) * (e[0].height + n) + n,
+                                itemsPositions: i,
+                            };
                         })(t, e, r);
                 }
             });
         function ft(t) {
-            if (!t) throw new Error("Filterizr as a jQuery plugin, requires jQuery to work. If you would prefer to use the vanilla JS version, please use the correct bundle file.");
+            if (!t)
+                throw new Error(
+                    'Filterizr as a jQuery plugin, requires jQuery to work. If you would prefer to use the vanilla JS version, please use the correct bundle file.'
+                );
             t.fn.filterizr = function () {
-                var e = "." + t.trim(this.get(0).className).replace(/\s+/g, "."),
+                var e = '.' + t.trim(this.get(0).className).replace(/\s+/g, '.'),
                     n = arguments;
-                if ((!this._fltr && 0 === n.length) || (1 === n.length && "object" == typeof n[0])) {
+                if ((!this._fltr && 0 === n.length) || (1 === n.length && 'object' == typeof n[0])) {
                     var r = n.length > 0 ? n[0] : v;
                     this._fltr = new yt(e, r);
-                } else if (n.length >= 1 && "string" == typeof n[0]) {
+                } else if (n.length >= 1 && 'string' == typeof n[0]) {
                     var i = n[0],
                         o = Array.prototype.slice.call(n, 1),
                         s = this._fltr;
                     switch (i) {
-                        case "filter":
+                        case 'filter':
                             return s.filter.apply(s, o), this;
-                        case "insertItem":
+                        case 'insertItem':
                             return s.insertItem.apply(s, o), this;
-                        case "removeItem":
+                        case 'removeItem':
                             return s.removeItem.apply(s, o), this;
-                        case "toggleFilter":
+                        case 'toggleFilter':
                             return s.toggleFilter.apply(s, o), this;
-                        case "sort":
+                        case 'sort':
                             return s.sort.apply(s, o), this;
-                        case "shuffle":
+                        case 'shuffle':
                             return s.shuffle.apply(s, o), this;
-                        case "search":
+                        case 'search':
                             return s.search.apply(s, o), this;
-                        case "setOptions":
+                        case 'setOptions':
                             return s.setOptions.apply(s, o), this;
-                        case "destroy":
+                        case 'destroy':
                             return s.destroy.apply(s, o), delete this._fltr, this;
                         default:
-                            throw new Error("Filterizr: " + i + " is not part of the Filterizr API. Please refer to the docs for more information.");
+                            throw new Error(
+                                'Filterizr: ' +
+                                    i +
+                                    ' is not part of the Filterizr API. Please refer to the docs for more information.'
+                            );
                     }
                 }
                 return this;
@@ -1994,7 +2218,7 @@ var Filterizr = (function (t) {
                     };
                 return (
                     (o = { next: a(0), throw: a(1), return: a(2) }),
-                    "function" == typeof Symbol &&
+                    'function' == typeof Symbol &&
                         (o[Symbol.iterator] = function () {
                             return this;
                         }),
@@ -2003,10 +2227,21 @@ var Filterizr = (function (t) {
                 function a(o) {
                     return function (a) {
                         return (function (o) {
-                            if (n) throw new TypeError("Generator is already executing.");
+                            if (n) throw new TypeError('Generator is already executing.');
                             for (; s; )
                                 try {
-                                    if (((n = 1), r && (i = 2 & o[0] ? r.return : o[0] ? r.throw || ((i = r.return) && i.call(r), 0) : r.next) && !(i = i.call(r, o[1])).done)) return i;
+                                    if (
+                                        ((n = 1),
+                                        r &&
+                                            (i =
+                                                2 & o[0]
+                                                    ? r.return
+                                                    : o[0]
+                                                    ? r.throw || ((i = r.return) && i.call(r), 0)
+                                                    : r.next) &&
+                                            !(i = i.call(r, o[1])).done)
+                                    )
+                                        return i;
                                     switch (((r = 0), i && (o = [2 & o[0], i.value]), o[0])) {
                                         case 0:
                                         case 1:
@@ -2021,7 +2256,10 @@ var Filterizr = (function (t) {
                                             (o = s.ops.pop()), s.trys.pop();
                                             continue;
                                         default:
-                                            if (!(i = (i = s.trys).length > 0 && i[i.length - 1]) && (6 === o[0] || 2 === o[0])) {
+                                            if (
+                                                !(i = (i = s.trys).length > 0 && i[i.length - 1]) &&
+                                                (6 === o[0] || 2 === o[0])
+                                            ) {
                                                 s = 0;
                                                 continue;
                                             }
@@ -2055,20 +2293,20 @@ var Filterizr = (function (t) {
             dt = n(1),
             yt = (function () {
                 function t(t, e) {
-                    void 0 === t && (t = ".filtr-container"), void 0 === e && (e = {}), (this.options = new b(e));
+                    void 0 === t && (t = '.filtr-container'), void 0 === e && (e = {}), (this.options = new b(e));
                     var n = this.options,
                         r = n.areControlsEnabled,
                         i = n.controlsSelector,
                         o = n.isSpinnerEnabled;
                     (this.windowEventReceiver = new y(window)),
                         (this.filterContainer = new V(c(t), this.options)),
-                        (this.imagesHaveLoaded = !this.filterContainer.node.querySelectorAll("img").length),
+                        (this.imagesHaveLoaded = !this.filterContainer.node.querySelectorAll('img').length),
                         r && (this.filterControls = new w(this, i)),
                         o && (this.spinner = new rt(this.filterContainer, this.options)),
                         this.initialize();
                 }
                 return (
-                    Object.defineProperty(t.prototype, "filterItems", {
+                    Object.defineProperty(t.prototype, 'filterItems', {
                         get: function () {
                             return this.filterContainer.filterItems;
                         },
@@ -2077,7 +2315,7 @@ var Filterizr = (function (t) {
                     }),
                     (t.prototype.filter = function (t) {
                         var e = this.filterContainer;
-                        e.trigger("filteringStart"),
+                        e.trigger('filteringStart'),
                             (e.filterizrState = r.FILTERING),
                             (t = Array.isArray(t)
                                 ? t.map(function (t) {
@@ -2090,7 +2328,9 @@ var Filterizr = (function (t) {
                     (t.prototype.destroy = function () {
                         var t = this.windowEventReceiver,
                             e = this.filterControls;
-                        this.filterContainer.destroy(), t.destroy(), this.options.areControlsEnabled && e && e.destroy();
+                        this.filterContainer.destroy(),
+                            t.destroy(),
+                            this.options.areControlsEnabled && e && e.destroy();
                     }),
                     (t.prototype.insertItem = function (t) {
                         return ht(this, void 0, void 0, function () {
@@ -2108,30 +2348,36 @@ var Filterizr = (function (t) {
                         this.filterContainer.removeItem(t), this.render();
                     }),
                     (t.prototype.sort = function (t, e) {
-                        void 0 === t && (t = "index"), void 0 === e && (e = "asc");
+                        void 0 === t && (t = 'index'), void 0 === e && (e = 'asc');
                         var n = this.filterContainer,
                             i = this.filterItems;
-                        n.trigger("sortingStart"), (n.filterizrState = r.SORTING), i.sort(t, e), this.render();
+                        n.trigger('sortingStart'), (n.filterizrState = r.SORTING), i.sort(t, e), this.render();
                     }),
                     (t.prototype.search = function (t) {
-                        void 0 === t && (t = this.options.get().searchTerm), (this.options.searchTerm = t.toLowerCase()), this.render();
+                        void 0 === t && (t = this.options.get().searchTerm),
+                            (this.options.searchTerm = t.toLowerCase()),
+                            this.render();
                     }),
                     (t.prototype.shuffle = function () {
                         var t = this.filterContainer,
                             e = this.filterItems;
-                        t.trigger("shufflingStart"), (t.filterizrState = r.SHUFFLING), e.shuffle(), this.render();
+                        t.trigger('shufflingStart'), (t.filterizrState = r.SHUFFLING), e.shuffle(), this.render();
                     }),
                     (t.prototype.setOptions = function (t) {
                         var e = this.filterContainer,
                             n = this.filterItems,
-                            r = "animationDuration" in t || "delay" in t || "delayMode" in t;
+                            r = 'animationDuration' in t || 'delay' in t || 'delayMode' in t;
                         (t.callbacks || r) && e.unbindEvents(),
                             this.options.set(t),
                             (t.easing || r) && n.styles.updateTransitionStyle(),
                             (t.callbacks || r) && e.bindEvents(),
-                            "searchTerm" in t && this.search(t.searchTerm),
-                            ("filter" in t || "multifilterLomultifilterLogicalOperator" in t) && this.filter(this.options.filter),
-                            "gutterPixels" in t && (this.filterContainer.styles.updatePaddings(), this.filterItems.styles.updateWidthWithTransitionsDisabled(), this.render());
+                            'searchTerm' in t && this.search(t.searchTerm),
+                            ('filter' in t || 'multifilterLomultifilterLogicalOperator' in t) &&
+                                this.filter(this.options.filter),
+                            'gutterPixels' in t &&
+                                (this.filterContainer.styles.updatePaddings(),
+                                this.filterItems.styles.updateWidthWithTransitionsDisabled(),
+                                this.render());
                     }),
                     (t.prototype.toggleFilter = function (t) {
                         this.options.toggleFilter(t), this.filter(this.options.filter);
@@ -2165,7 +2411,13 @@ var Filterizr = (function (t) {
                             return pt(this, function (i) {
                                 switch (i.label) {
                                     case 0:
-                                        return (e = (t = this).filterContainer), (n = t.filterItems), (r = t.spinner), this.bindEvents(), [4, this.waitForImagesToLoad()];
+                                        return (
+                                            (e = (t = this).filterContainer),
+                                            (n = t.filterItems),
+                                            (r = t.spinner),
+                                            this.bindEvents(),
+                                            [4, this.waitForImagesToLoad()]
+                                        );
                                     case 1:
                                         return i.sent(), this.options.isSpinnerEnabled ? [4, r.destroy()] : [3, 3];
                                     case 2:
@@ -2173,7 +2425,7 @@ var Filterizr = (function (t) {
                                     case 3:
                                         return this.render(), [4, n.styles.enableTransitions()];
                                     case 4:
-                                        return i.sent(), e.trigger("init"), [2];
+                                        return i.sent(), e.trigger('init'), [2];
                                 }
                             });
                         });
@@ -2182,7 +2434,7 @@ var Filterizr = (function (t) {
                         var t = this,
                             e = this.filterItems;
                         this.windowEventReceiver.on(
-                            "resize",
+                            'resize',
                             a(
                                 function () {
                                     e.styles.updateWidthWithTransitionsDisabled(), t.render();
@@ -2223,7 +2475,7 @@ var Filterizr = (function (t) {
                     t
                 );
             })();
-        n.d(e, "a", function () {
+        n.d(e, 'a', function () {
             return yt;
         });
     },
@@ -2240,7 +2492,7 @@ var Filterizr = (function (t) {
          * MIT License
          */
         !(function (o, s) {
-            "use strict";
+            'use strict';
             (r = [n(3)]),
                 void 0 ===
                     (i = function (t) {
@@ -2255,20 +2507,20 @@ var Filterizr = (function (t) {
                             function s(t, e, a) {
                                 if (!(this instanceof s)) return new s(t, e, a);
                                 var u = t;
-                                "string" == typeof t && (u = document.querySelectorAll(t)),
+                                'string' == typeof t && (u = document.querySelectorAll(t)),
                                     u
                                         ? ((this.elements = (function (t) {
                                               if (Array.isArray(t)) return t;
-                                              if ("object" == typeof t && "number" == typeof t.length) return o.call(t);
+                                              if ('object' == typeof t && 'number' == typeof t.length) return o.call(t);
                                               return [t];
                                           })(u)),
                                           (this.options = i({}, this.options)),
-                                          "function" == typeof e ? (a = e) : i(this.options, e),
-                                          a && this.on("always", a),
+                                          'function' == typeof e ? (a = e) : i(this.options, e),
+                                          a && this.on('always', a),
                                           this.getImages(),
                                           n && (this.jqDeferred = new n.Deferred()),
                                           setTimeout(this.check.bind(this)))
-                                        : r.error("Bad element for imagesLoaded " + (u || t));
+                                        : r.error('Bad element for imagesLoaded ' + (u || t));
                             }
                             (s.prototype = Object.create(e.prototype)),
                                 (s.prototype.options = {}),
@@ -2276,14 +2528,15 @@ var Filterizr = (function (t) {
                                     (this.images = []), this.elements.forEach(this.addElementImages, this);
                                 }),
                                 (s.prototype.addElementImages = function (t) {
-                                    "IMG" == t.nodeName && this.addImage(t), !0 === this.options.background && this.addElementBackgroundImages(t);
+                                    'IMG' == t.nodeName && this.addImage(t),
+                                        !0 === this.options.background && this.addElementBackgroundImages(t);
                                     var e = t.nodeType;
                                     if (e && a[e]) {
-                                        for (var n = t.querySelectorAll("img"), r = 0; r < n.length; r++) {
+                                        for (var n = t.querySelectorAll('img'), r = 0; r < n.length; r++) {
                                             var i = n[r];
                                             this.addImage(i);
                                         }
-                                        if ("string" == typeof this.options.background) {
+                                        if ('string' == typeof this.options.background) {
                                             var o = t.querySelectorAll(this.options.background);
                                             for (r = 0; r < o.length; r++) {
                                                 var s = o[r];
@@ -2303,7 +2556,11 @@ var Filterizr = (function (t) {
                                 (s.prototype.addElementBackgroundImages = function (t) {
                                     var e = getComputedStyle(t);
                                     if (e)
-                                        for (var n = /url\((['"])?(.*?)\1\)/gi, r = n.exec(e.backgroundImage); null !== r; ) {
+                                        for (
+                                            var n = /url\((['"])?(.*?)\1\)/gi, r = n.exec(e.backgroundImage);
+                                            null !== r;
+
+                                        ) {
                                             var i = r && r[2];
                                             i && this.addBackground(i, t), (r = n.exec(e.backgroundImage));
                                         }
@@ -2327,67 +2584,78 @@ var Filterizr = (function (t) {
                                         (this.hasAnyBroken = !1),
                                         this.images.length
                                             ? this.images.forEach(function (t) {
-                                                  t.once("progress", e), t.check();
+                                                  t.once('progress', e), t.check();
                                               })
                                             : this.complete();
                                 }),
                                 (s.prototype.progress = function (t, e, n) {
                                     this.progressedCount++,
                                         (this.hasAnyBroken = this.hasAnyBroken || !t.isLoaded),
-                                        this.emitEvent("progress", [this, t, e]),
+                                        this.emitEvent('progress', [this, t, e]),
                                         this.jqDeferred && this.jqDeferred.notify && this.jqDeferred.notify(this, t),
                                         this.progressedCount == this.images.length && this.complete(),
-                                        this.options.debug && r && r.log("progress: " + n, t, e);
+                                        this.options.debug && r && r.log('progress: ' + n, t, e);
                                 }),
                                 (s.prototype.complete = function () {
-                                    var t = this.hasAnyBroken ? "fail" : "done";
-                                    if (((this.isComplete = !0), this.emitEvent(t, [this]), this.emitEvent("always", [this]), this.jqDeferred)) {
-                                        var e = this.hasAnyBroken ? "reject" : "resolve";
+                                    var t = this.hasAnyBroken ? 'fail' : 'done';
+                                    if (
+                                        ((this.isComplete = !0),
+                                        this.emitEvent(t, [this]),
+                                        this.emitEvent('always', [this]),
+                                        this.jqDeferred)
+                                    ) {
+                                        var e = this.hasAnyBroken ? 'reject' : 'resolve';
                                         this.jqDeferred[e](this);
                                     }
                                 }),
                                 (u.prototype = Object.create(e.prototype)),
                                 (u.prototype.check = function () {
                                     this.getIsImageComplete()
-                                        ? this.confirm(0 !== this.img.naturalWidth, "naturalWidth")
+                                        ? this.confirm(0 !== this.img.naturalWidth, 'naturalWidth')
                                         : ((this.proxyImage = new Image()),
-                                          this.proxyImage.addEventListener("load", this),
-                                          this.proxyImage.addEventListener("error", this),
-                                          this.img.addEventListener("load", this),
-                                          this.img.addEventListener("error", this),
+                                          this.proxyImage.addEventListener('load', this),
+                                          this.proxyImage.addEventListener('error', this),
+                                          this.img.addEventListener('load', this),
+                                          this.img.addEventListener('error', this),
                                           (this.proxyImage.src = this.img.src));
                                 }),
                                 (u.prototype.getIsImageComplete = function () {
                                     return this.img.complete && this.img.naturalWidth;
                                 }),
                                 (u.prototype.confirm = function (t, e) {
-                                    (this.isLoaded = t), this.emitEvent("progress", [this, this.img, e]);
+                                    (this.isLoaded = t), this.emitEvent('progress', [this, this.img, e]);
                                 }),
                                 (u.prototype.handleEvent = function (t) {
-                                    var e = "on" + t.type;
+                                    var e = 'on' + t.type;
                                     this[e] && this[e](t);
                                 }),
                                 (u.prototype.onload = function () {
-                                    this.confirm(!0, "onload"), this.unbindEvents();
+                                    this.confirm(!0, 'onload'), this.unbindEvents();
                                 }),
                                 (u.prototype.onerror = function () {
-                                    this.confirm(!1, "onerror"), this.unbindEvents();
+                                    this.confirm(!1, 'onerror'), this.unbindEvents();
                                 }),
                                 (u.prototype.unbindEvents = function () {
-                                    this.proxyImage.removeEventListener("load", this), this.proxyImage.removeEventListener("error", this), this.img.removeEventListener("load", this), this.img.removeEventListener("error", this);
+                                    this.proxyImage.removeEventListener('load', this),
+                                        this.proxyImage.removeEventListener('error', this),
+                                        this.img.removeEventListener('load', this),
+                                        this.img.removeEventListener('error', this);
                                 }),
                                 (c.prototype = Object.create(u.prototype)),
                                 (c.prototype.check = function () {
-                                    this.img.addEventListener("load", this),
-                                        this.img.addEventListener("error", this),
+                                    this.img.addEventListener('load', this),
+                                        this.img.addEventListener('error', this),
                                         (this.img.src = this.url),
-                                        this.getIsImageComplete() && (this.confirm(0 !== this.img.naturalWidth, "naturalWidth"), this.unbindEvents());
+                                        this.getIsImageComplete() &&
+                                            (this.confirm(0 !== this.img.naturalWidth, 'naturalWidth'),
+                                            this.unbindEvents());
                                 }),
                                 (c.prototype.unbindEvents = function () {
-                                    this.img.removeEventListener("load", this), this.img.removeEventListener("error", this);
+                                    this.img.removeEventListener('load', this),
+                                        this.img.removeEventListener('error', this);
                                 }),
                                 (c.prototype.confirm = function (t, e) {
-                                    (this.isLoaded = t), this.emitEvent("progress", [this, this.element, e]);
+                                    (this.isLoaded = t), this.emitEvent('progress', [this, this.element, e]);
                                 }),
                                 (s.makeJQueryPlugin = function (e) {
                                     (e = e || t.jQuery) &&
@@ -2400,12 +2668,12 @@ var Filterizr = (function (t) {
                             );
                         })(o, t);
                     }.apply(e, r)) || (t.exports = i);
-        })("undefined" != typeof window ? window : this);
+        })('undefined' != typeof window ? window : this);
     },
     function (t, e) {
         function n(t, e, n, r) {
             var i,
-                o = null == (i = r) || "number" == typeof i || "boolean" == typeof i ? r : n(r),
+                o = null == (i = r) || 'number' == typeof i || 'boolean' == typeof i ? r : n(r),
                 s = e.get(o);
             return void 0 === s && ((s = t.call(this, r)), e.set(o, s)), s;
         }
@@ -2457,12 +2725,12 @@ var Filterizr = (function (t) {
     },
     function (t, e, n) {
         var r, i;
-        "undefined" != typeof window && window,
+        'undefined' != typeof window && window,
             void 0 ===
                 (i =
-                    "function" ==
+                    'function' ==
                     typeof (r = function () {
-                        "use strict";
+                        'use strict';
                         function t() {}
                         var e = t.prototype;
                         return (
@@ -2508,7 +2776,7 @@ var Filterizr = (function (t) {
                         : r) || (t.exports = i);
     },
     function (t, e, n) {
-        "use strict";
+        'use strict';
         n.r(e);
         var r,
             i = n(0);
